@@ -24,16 +24,22 @@ module.exports = generators.Base.extend({
     }.bind(this));
   },
   scaffold: function () {
-  	mkdirp("app/assets", function (err) {});
-  	mkdirp("app/assets/img", function (err) {});
-  	mkdirp("app/assets/styles",function (err) {});
-  	mkdirp("app/js",function (err) {});
-  	mkdirp("app/directives",function (err) {});
-  	mkdirp("app/modules",function (err) {});
-  	mkdirp("app/views",function (err) {});
-  	mkdirp("build",function (err) {});
+    var _this = this;
+    var errorFunction = function (err) {
+      if err
+        _this.log(err);
+    }
+  	mkdirp("app/assets", errorFunction);
+  	mkdirp("app/assets/img", errorFunction);
+  	mkdirp("app/assets/styles", errorFunction);
+  	mkdirp("app/js", errorFunction);
+  	mkdirp("app/directives", errorFunction);
+  	mkdirp("app/modules", errorFunction);
+  	mkdirp("app/views", errorFunction);
+  	mkdirp("build", errorFunction);
   },
-  copyFiles: function(){
+  generateFiles: function(){
+    var _this = this;
     this.copy("_gulpfile.js", "gulpfile.js");
     this.copy("_gitignore", ".gitignore");    
  
@@ -43,18 +49,12 @@ module.exports = generators.Base.extend({
  
     this.template("_bower.json", "bower.json", context);
     this.template("_package.json", "package.json", context);
-	},
-	installBowerDependencies: function () {
-		var dependencias = require('./dependenciasBower.json')
-    this.bowerInstall(dependencias, { 'save': true });
-	
-	},
-	installNPMDependencies: function () {
-		this.log(yosay(
-      'Ahora siguen las de NPM'
-    ));
-    var dependencias = require('./dependenciasNPM.json');
-    this.npmInstall(dependencias, { 'saveDev': true });
-
+    this.installDependencies({
+      bower: true,
+      npm: true,
+      callback: function () {
+        _this.log(yosay("Yotality"));
+      }
+    });
 	}
 });
