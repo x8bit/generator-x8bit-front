@@ -1,4 +1,4 @@
 node_modules/*
 npm-debug.*
 bower_components/*
-public/*
+build/*
