@@ -1,0 +1,12 @@
+{
+  "name": "<%= nombre_app %>",
+  "version": "0.0.0",
+  "authors": [
+  ],
+  "description": "<%= nombre_app %>",
+  "main": "index.html",
+  "keywords": [
+  ],
+  "dependencies": {
+  }
+}

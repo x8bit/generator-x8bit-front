@@ -1,0 +1,15 @@
+{
+  "name": "<%= nombre_app %>",
+  "version": "0.0.0",
+  "description": "<%= nombre_app %>",
+  "author": "",
+  "dependencies": {},
+  "devDependencies": {
+
+  },
+  "scripts": {
+    "prestart": "bower install",
+    "start": "npm install",
+    "poststart": "gulp"
+  }
+}

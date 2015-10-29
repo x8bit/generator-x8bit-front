@@ -1,0 +1,14 @@
+[
+	"angular",
+	"angular-loading-bar",
+  "angular-ui-router",
+  "angular-bootstrap",
+  "angular-cookies",
+  "angular-animate",
+  "angular-ui-utils",
+  "fontawesome",
+  "ngstorage",
+  "angular-sanitize",
+  "simple-line-icons",
+  "font-awesome"
+]
