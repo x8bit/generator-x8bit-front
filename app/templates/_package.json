@@ -5,7 +5,23 @@
   "author": "",
   "dependencies": {},
   "devDependencies": {
-
+    "gulp" : "latest",
+    "gulp-angular-templatecache" : "latest",
+    "gulp-coffee" : "latest",
+    "gulp-compass" : "latest",
+    "gulp-concat" : "latest",
+    "gulp-concat-css" : "latest",
+    "gulp-connect" : "latest",
+    "gulp-css-flip" : "latest",
+    "gulp-if" : "latest",
+    "gulp-ignore" : "latest",
+    "gulp-jade" : "latest",
+    "gulp-less" : "latest",
+    "gulp-ng-annotate" : "latest",
+    "gulp-sass" : "latest",
+    "gulp-uglify" : "latest",
+    "gulp-util" : "latest",
+    "through2" : "latest"
   },
   "scripts": {
     "prestart": "bower install",
