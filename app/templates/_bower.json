@@ -8,6 +8,7 @@
   "keywords": [
   ],
   "dependencies": {
+    "jquery": "latest",
     "angular" : "latest",
     "angular-loading-bar" : "latest",
     "angular-ui-router" : "latest",
@@ -15,9 +16,13 @@
     "angular-cookies" : "latest",
     "angular-animate" : "latest",
     "angular-ui-utils" : "latest",
-    "fontawesome" : "latest",
     "ngstorage" : "latest",
     "angular-sanitize" : "latest",
+    "oclazyload": "latest",
+    "angular-resource": "latest",
+    "angular-translate": "latest",
+    "angular-translate-storage-local": "latest",
+    "angular-translate-loader-static-files": "latest",
     "simple-line-icons" : "latest",
     "font-awesome" : "latest"
   }
