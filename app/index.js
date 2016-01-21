@@ -26,7 +26,7 @@ module.exports = generators.Base.extend({
   scaffold: function () {
     var _this = this;
     var errorFunction = function (err) {
-      if err
+      if(err)
         _this.log(err);
     }
   	mkdirp("app/assets", errorFunction);
