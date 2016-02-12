@@ -24,6 +24,7 @@
     "angular-translate-storage-local": "latest",
     "angular-translate-loader-static-files": "latest",
     "simple-line-icons" : "latest",
-    "font-awesome" : "latest"
+    "font-awesome" : "latest",
+    "lodash" : "latest"
   }
 }
