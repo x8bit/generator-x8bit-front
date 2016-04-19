@@ -11,9 +11,14 @@ var gulp        = require('gulp'),
     templateCache = require('gulp-angular-templatecache'),
     template = require('gulp-template');
 
-var cssFiles = require("./listAssets/bowercss.json");
-var jsFiles = require("./listAssets/bowerjs.json");
-
+var cssFiles = []; 
+var jsFiles = [];
+try{
+  cssFiles = require("./listAssets/bowercss.json");
+  jsFiles = require("./listAssets/bowerjs.json");
+}catch (err){
+  //handle error
+}
 var enviroments = {
   "development" : {
   },
@@ -73,7 +78,7 @@ gulp.task('minify-vendor-css', function () {
 });
 
 gulp.task('minify-own-styles', function(){
-  return gulp.src("app/assets/styles/**/*.css")
+  return gulp.src("app/assets/css/**/*.css")
       .pipe(concatCss('app.css'))
       .pipe(gulp.dest('build/assets/css'))
 });
