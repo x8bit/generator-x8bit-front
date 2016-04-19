@@ -1,6 +1,6 @@
 {
   "name": "generator-x8bit-front",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Generator for frontend apps in x8bit",
   "files": [
     "app"
