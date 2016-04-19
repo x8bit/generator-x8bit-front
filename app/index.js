@@ -36,6 +36,7 @@ module.exports = generators.Base.extend({
   	mkdirp("app/directives", errorFunction);
   	mkdirp("app/modules", errorFunction);
   	mkdirp("app/views", errorFunction);
+    mkdirp("listAssets", errorFunction);
   	mkdirp("build", errorFunction);
   },
   generateFiles: function(){
