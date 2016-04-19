@@ -10,6 +10,7 @@
   "dependencies": {
     "jquery": "latest",
     "angular" : "latest",
+    "angular-route": "latest",
     "angular-loading-bar" : "latest",
     "angular-ui-router" : "latest",
     "angular-bootstrap" : "latest",
@@ -24,7 +25,6 @@
     "angular-translate-storage-local": "latest",
     "angular-translate-loader-static-files": "latest",
     "simple-line-icons" : "latest",
-    "font-awesome" : "latest",
-    "lodash" : "latest"
+    "font-awesome" : "latest"
   }
 }
