@@ -53,6 +53,10 @@ module.exports = generators.Base.extend({
     this.template("_bower.json", this.nombreApp + "/bower.json", context);
     this.template("_package.json", this.nombreApp + "/package.json", context);
     this.template("_index.jade", this.nombreApp + "/app/index.jade", context);
+    
+    var appdir = process.cwd() + '/' + this.nombreApp;
+    process.chdir(appdir);
+    
     this.installDependencies({
       bower: true,
       npm: true,
