@@ -9,16 +9,10 @@ var gulp        = require('gulp'),
     ngAnnotate  = require('gulp-ng-annotate'),
     gulpif      = require('gulp-if'),
     templateCache = require('gulp-angular-templatecache'),
-    template = require('gulp-template');
+    template = require('gulp-template'),
+    lazypipe = require('lazypipe'),
+    mainBowerFiles = require('main-bower-files');
 
-var cssFiles = []; 
-var jsFiles = [];
-try{
-  cssFiles = require("./listAssets/bowercss.json");
-  jsFiles = require("./listAssets/bowerjs.json");
-}catch (err){
-  //handle error
-}
 var enviroments = {
   "development" : {
   },
@@ -71,22 +65,28 @@ gulp.task('copyImages',function(){
   .pipe(gulp.dest('build/assets/img'));
 });
 
-gulp.task('minify-vendor-css', function () {
-    return gulp.src(cssFiles)
-        .pipe(concatCss('vendor.css'))
-        .pipe(gulp.dest('build/assets/css'))
+var cssTasks = lazypipe()
+    .pipe(concat,'vendor.min.css')
+    .pipe(gulp.dest,"build/assets/css");
+
+var jsTasks = lazypipe()
+  .pipe(concat,'vendor.min.js')
+  .pipe(gulp.dest,"build/assets/js");
+
+gulp.task('bowerify', function() {
+  return gulp.src(mainBowerFiles())
+  .pipe(
+      gulpif(/[.]js$/, jsTasks()
+    ))
+  .pipe(
+      gulpif(/[.]css$/, cssTasks()
+    ))
 });
 
 gulp.task('minify-own-styles', function(){
   return gulp.src("app/assets/css/**/*.css")
       .pipe(concatCss('app.css'))
       .pipe(gulp.dest('build/assets/css'))
-});
-
-gulp.task('minify-vendor-js', function() {
-  return gulp.src(jsFiles)
-    .pipe(concat('vendor.min.js'))
-    .pipe(gulp.dest('build/assets/js/'))
 });
 
 gulp.task('minify-own-sources', function() {
@@ -121,5 +121,5 @@ gulp.task('watch', function () {
   gulp.watch(['app/index.jade'], ['index']);
 });
 
-gulp.task('default', ['connect', 'copyfonts', 'copyImages', 'minify-vendor-js', 'templates','minify-vendor-css', 'minify-own-styles', 'minify-own-sources', 'index' ,'watch']);
-gulp.task('production', ['copyfonts', 'copyImages', 'minify-vendor-js', 'templates','minify-vendor-css', 'minify-own-styles', 'minify-own-sources', 'index']);
+gulp.task('default', ['connect', 'copyfonts', 'copyImages', 'bowerify', 'templates', 'minify-own-styles', 'minify-own-sources', 'index' ,'watch']);
+gulp.task('production', ['copyfonts', 'copyImages', 'bowerify', 'templates', 'minify-own-styles', 'minify-own-sources', 'index']);
