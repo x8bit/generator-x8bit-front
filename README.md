@@ -1,50 +1,45 @@
-#Generador Frontend X8 bit
+#Frontend generator by X8bit
 
-Generador para aplicaciones frontend usando Angular, CoffeeScript y Jade.
+Frontend generator include AngularJS, CoffeeScript, Jade and Gulp how task runner.
 
-Este generador incluye Gulp como taskmanager, ya tiene configuradas tareas que solo se usan en desarrollo o producción.
+The gulpfile include tasks for development or production but you must configure.
+1. Requirements
+2. Installation
+3. Folder Schema
+4. Works
 
-1. Pre-requisitos
-2. Instalación
-3. Arquitectura
-4. Uso
-
-## Pre-requisitos
-Tener instalado yeoman usando el gestor de paquetes de Node npm
+## Requirements
+Install yeoman
 
 ```
 npm install -g yo
 ```
 
-## Instalación
+## Installation
 ```
 npm install -g generator-x8bit-front
 ```
-## Arquitectura
-El generador X8 crea la siguiente estructura de carpetas y archivos
+
+## Folder Schema
+The generator creates the followings folders and files.
 
 * app
 	* assets
-	* modulos 
+    * directives
+    * js
+    * modules
+    * views
+    * index.jade
 * bower.json
-* bower_components
+* gulpfile.js
 * package.json
 * .gitignore
-* node_modules
 
-## Uso
+## Works
 
-Para usarlo teclea en la terminal 
+Use the next command 
 
 ```
 yo x8bit-front
 ```
-
-Te pedirá el nombre tu proyecto y creará la estructura antes mencionada.
-
-Agrega las rutas de las dependencias que quieras usar a los archivos bowercss.json y bowerjs.json en la carpeta listAssets con el siguiente formato.
-```
-[
-    "bower_components/angular-bootstrap/ui-bootstrap-csp.css"
-]
-```
+The generator only will ask the name of application
