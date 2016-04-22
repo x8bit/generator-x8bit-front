@@ -1,0 +1,17 @@
+doctype html
+html(lang="en" data-ng-app="<%= nombre_app %>")
+	head
+		meta(charset="utf-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1")
+		meta(name="keywords" content="app, responsive, angular, bootstrap, dashboard, admin")
+		base(href="/")
+		title(data-ng-bind="::pageTitle()")
+		title <%= nombre_app %>
+		link(rel="stylesheet" href="assets/css/vendor.min.css")
+		link(rel="stylesheet" href="assets/css/app.css")
+
+	body(data-ng-class="{ 'layout-fixed' : app.layout.isFixed, 'aside-collapsed' : app.layout.isCollapsed, 'layout-boxed' : app.layout.isBoxed, 'layout-fs': app.useFullLayout, 'hidden-footer': app.hiddenFooter, 'layout-h': app.layout.horizontal, 'aside-float': app.layout.isFloat}" ng-app="<%= nombre_app %>")
+		.wrapper(ui-view="mainView" data-autoscroll="false")
+		script(src="assets/js/vendor.min.js")
+		script(src="assets/js/templates.js")
+		script(src="assets/js/app.min.js")
