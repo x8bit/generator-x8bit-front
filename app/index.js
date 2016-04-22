@@ -7,14 +7,14 @@ module.exports = generators.Base.extend({
   	var done = this.async();
 
   	this.log(yosay(
-      'Este es el generador de aplicaciones frontend de X8bit'
+      "X8bit's applications frontend generator"
     ));
 
     var prompts = [
 	    {
-	      type    : 'input',
-	      name    : 'nombre',
-	      message : '¿Nombre del proyecto?',
+	      type    : "input",
+	      name    : "nombre",
+	      message : "Project's name?",
 	      default : "x8-front"
 	    }
     ];
