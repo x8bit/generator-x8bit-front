@@ -5,6 +5,8 @@
   "author": "",
   "dependencies": {},
   "devDependencies": {
+    "lazypipe": "latest",
+    "main-bower-files": "latest",
     "gulp" : "latest",
     "gulp-angular-templatecache" : "latest",
     "gulp-coffee" : "latest",
