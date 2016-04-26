@@ -85,12 +85,12 @@ gulp.task('bowerify', function() {
 
 gulp.task('minify-own-styles', function(){
   return gulp.src("app/assets/css/**/*.css")
-      .pipe(concatCss('app.css'))
+      .pipe(concatCss('app.min.css'))
       .pipe(gulp.dest('build/assets/css'))
 });
 
 gulp.task('minify-own-sources', function() {
-  gulp.src(['app/directives/**/*.coffee', 'app/modules/*.module.coffee' ,'app/modules/**/*.coffee','app/js/*.coffee', 'app/js/*.js'])
+  gulp.src(['app/directives/**/*.coffee', 'app/modules/**/*.module.coffee' ,'app/modules/**/*.coffee','app/js/*.coffee', 'app/js/*.js'])
     .pipe(
       gulpif(/[.]coffee$/, coffee({bare: true}).on('error', gutil.log)
     ))
