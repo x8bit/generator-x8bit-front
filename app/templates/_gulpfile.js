@@ -2,7 +2,6 @@ var gulp        = require('gulp'),
     connect     = require('gulp-connect'),
     coffee      = require('gulp-coffee'),
     concat      = require('gulp-concat'),
-    concatCss   = require('gulp-concat-css'),
     jade        = require('gulp-jade'),
     less        = require('gulp-less'),
     gutil       = require('gulp-util'),
@@ -56,8 +55,8 @@ var fontsDirectory = [
 ];
 
 gulp.task('copyfonts',function(){
-  gulp.src(fontsDirectory, { base: 'bower_components' })
-  .pipe(gulp.dest('build/assets'));
+  gulp.src(fontsDirectory)
+  .pipe(gulp.dest('build/assets/fonts'));
 });
 
 gulp.task('copyImages',function(){
@@ -76,6 +75,9 @@ var jsTasks = lazypipe()
 gulp.task('bowerify', function() {
   return gulp.src(mainBowerFiles())
   .pipe(
+      gulpif(/[.]less$/, less() //Font-awesome is guilty for this line
+    ))
+  .pipe(
       gulpif(/[.]js$/, jsTasks()
     ))
   .pipe(
@@ -85,7 +87,7 @@ gulp.task('bowerify', function() {
 
 gulp.task('minify-own-styles', function(){
   return gulp.src("app/assets/css/**/*.css")
-      .pipe(concatCss('app.min.css'))
+      .pipe(concat('app.min.css'))
       .pipe(gulp.dest('build/assets/css'))
 });
 
